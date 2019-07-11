@@ -1,7 +1,10 @@
 import React, { useState, useEffect} from "react";
 import axios from 'axios';
-import "./App.css";
 import Title from "./Components/Title";
+import Information from "./Components/Information";
+import Video from "./Components/Video";
+
+import "./App.css";
 
 const App = () => {
   const [state, setState] = useState({
@@ -16,9 +19,9 @@ const App = () => {
 
   useEffect( () => {
     axios
-    .get('https://api.nasa.gov/planetary/apod?api_key=gMsZfkpVIl4FWwGE0XSzk3NtyMt3ZZrM0gxmpBEd')
+    .get('https://api.nasa.gov/planetary/apod?api_key=L5UdZfYwkpmPnvUcXZ7FWc6LD8l96U0fqJ3VJ7xO')
     .then( res => {
-      console.log(res.data)
+      console.log( "My data", res.data)
       setState(res.data)
     })
     .catch(err => console.log("You know you messed up, right?", err))
@@ -27,12 +30,13 @@ const App = () => {
   return (
     <div className="App">
         <Title  title={state.title} />
-      <div className="pic-of-the-day">
-        {state.date}
-      </div>
+        <div className="pic-of-the-day">
+          <Information date={state.date} service={state.service_version} media={state.media_type}  />
+        </div>
+        <div>
+          <Video url={state.url} explanation={state.explanation} media={state.media_type} />
+        </div>
     </div>
   );
 }
-
 export default App;
-// https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
