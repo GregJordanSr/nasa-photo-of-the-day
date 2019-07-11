@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { Container } from 'semantic-ui-react';
 
  const Information = props => {
     return (
-        <div className="info">
-            <p>{props.date}</p>
-            <p>{props.service}</p>
-            <p>{props.media}</p>
+        <Container textAlign="center" className="info">
+            <p>{props.state.date}</p>
+            <p>{props.state.service}</p>
+            <p>{props.state.media}</p>
             
-        </div>
+        </Container>
     )
 }
 export default Information;
