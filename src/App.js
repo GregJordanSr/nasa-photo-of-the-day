@@ -19,7 +19,7 @@ const App = () => {
 
   useEffect( () => {
     axios
-    .get('https://api.nasa.gov/planetary/apod?api_key=L5UdZfYwkpmPnvUcXZ7FWc6LD8l96U0fqJ3VJ7xO')
+    .get('https://api.nasa.gov/planetary/apod?api_key=qyd35keQiktzxrfaHvbGgfuR9fdC1yNH49lr5QLs')
     .then( res => {
       console.log( "My data", res.data)
       setState(res.data)
