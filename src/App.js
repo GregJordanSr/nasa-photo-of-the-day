@@ -5,17 +5,10 @@ import Information from "./Components/Information";
 import Video from "./Components/Video";
 
 import "./App.css";
+import { Container } from "semantic-ui-react";
 
 const App = () => {
-  const [state, setState] = useState({
-    
-    // date: '',
-    // explanation: "",
-    // media_type: "",
-    // service_version: "",
-    // title:"",
-    // url:""
-  })
+  const [state, setState] = useState({})
 
   useEffect( () => {
     axios
@@ -30,15 +23,17 @@ const App = () => {
   console.log('My state', state);
 
   return (
-    <div className="App">
-        <Title  state={state} />
-        <div className="pic-of-the-day">
-          <Information state={state}  />
-        </div>
-        <div>
-          <Video state={state}  />
-        </div>
-    </div>
+    <Container textAlign ="center">
+      <div className="App">
+          <Title  state={state} />
+          <div className="pic-of-the-day">
+            <Information state={state}  />
+          </div>
+          <div>
+            <Video state={state}  />
+          </div>
+      </div>
+      </Container>
   );
 }
 export default App;
