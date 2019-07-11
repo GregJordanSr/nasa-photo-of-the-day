@@ -9,12 +9,12 @@ import "./App.css";
 const App = () => {
   const [state, setState] = useState({
     
-    date: '',
-    explanation: "",
-    media_type: "",
-    service_version: "",
-    title:"",
-    url:""
+    // date: '',
+    // explanation: "",
+    // media_type: "",
+    // service_version: "",
+    // title:"",
+    // url:""
   })
 
   useEffect( () => {
@@ -27,14 +27,16 @@ const App = () => {
     .catch(err => console.log("You know you messed up, right?", err))
   }, [])
 
+  console.log('My state', state);
+
   return (
     <div className="App">
-        <Title  title={state.title} />
+        <Title  state={state} />
         <div className="pic-of-the-day">
-          <Information date={state.date} service={state.service_version} media={state.media_type}  />
+          <Information state={state}  />
         </div>
         <div>
-          <Video url={state.url} explanation={state.explanation} media={state.media_type} />
+          <Video state={state}  />
         </div>
     </div>
   );

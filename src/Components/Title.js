@@ -4,7 +4,7 @@ import React from 'react'
   return (
     <div>
         <header className="header">
-            {props.title}
+            {props.state.title}
         </header>
     </div>
   )
